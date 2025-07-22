@@ -1,0 +1,1 @@
+https://nextjsstarter.com/blog/create-tabs-in-nextjs-with-react-tabs/
