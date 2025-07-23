@@ -44,3 +44,16 @@ a {
     color-scheme: dark;
   }
 }
+
+.carousel{
+  @apply overflow-hidden relative;
+  .arrow{
+    @apply absolute inset-0 flex items-center justify-between p-4;
+    button{
+      @apply p-2 rounded-full shadow bg-slate-50 hover:bg-gray-400;
+      img{
+        @apply h-[30px] px-2;
+      }
+    }
+  }
+}
