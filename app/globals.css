@@ -47,6 +47,9 @@ a {
 
 .carousel{
   @apply overflow-hidden relative;
+  .scroll-bar{
+    @apply flex transition-transform ease-out duration-500;
+  }
   .arrow{
     @apply absolute inset-0 flex items-center justify-between p-4;
     button{
