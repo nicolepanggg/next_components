@@ -1,4 +1,5 @@
 "use client"
+
 import Carousel from '../components/carousel';
 
 const slides = [
