@@ -8,21 +8,21 @@ interface ModalProps {
 }
 export default function Modal({ isVisible, title, content, onClose, children, type }: ModalProps) {
 
-    if (!isVisible) return null;
     return (
         <div
-            className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-300 ${
-        isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+            className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms] ${
+        isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+    }`}
         >
             <div
-                className={`${type !== 'video' ? 'w-[600px]' : ''} flex flex-col transition-transform duration-300 transform ${
+                className={`${type !== 'video' ? 'w-[600px]' : ''} flex flex-col transition-transform duration-[500ms] transform ${
                     isVisible ? 'scale-100' : 'scale-95'
                 }`}
             >
                 <button className="text-white text-xl place-self-end" onClick={onClose}>X</button>
-                <div className="bg-white p-2 rounded">
+                <div className="bg-white rounded p-4">
                     {type != "video" ? <>
-                        <h1>{title}</h1>
+                        <h1 className="font-bold mb-2 pb-3 text-xl text-blue-700">{title}</h1>
                         <div>
                             {content || children}
                         </div>
