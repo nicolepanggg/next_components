@@ -8,20 +8,20 @@ const modal = () => {
     const [showModal4, setshowModal4] = useState(false);
     return (
         <>
-            <div className="p-10 text-center">
-                <h1 className="text-3xl mb-3">
+            <div className="modalBox">
+                <h1>
                     Custom
                 </h1>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium p-2 rounded mr-5" onClick={()=>setshowModal(true)}>
+                <button onClick={()=>setshowModal(true)}>
                      children prop Modal
                 </button>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium p-2 rounded mr-5" onClick={()=>setshowModal2(true)}>
+                <button onClick={()=>setshowModal2(true)}>
                     Video Modal
                 </button>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium p-2 rounded mr-5" onClick={()=>setshowModal3(true)}>
+                <button onClick={()=>setshowModal3(true)}>
                     Text Modal
                 </button>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium p-2 rounded mr-5" onClick={()=>setshowModal4(true)}>
+                <button onClick={()=>setshowModal4(true)}>
                     Image Modal
                 </button>
             </div>
@@ -30,8 +30,20 @@ const modal = () => {
                 <p>If you need a deeper dive into React concepts or specific examples, let me know!</p>
             </Modal>
             <Modal isVisible={showModal2} content="l74IoKvRQtg" type="video" onClose={() => setshowModal2(false)}></Modal>
-            <Modal isVisible={showModal3} title="555" content="It is displayed as normal text." type="text" onClose={() => setshowModal3(false)}/>
+            <Modal isVisible={showModal3} title="Normal Text" content="It is displayed as normal text." type="text" onClose={() => setshowModal3(false)}/>
             <Modal isVisible={showModal4} title="It is Image Modal" content="img-6.jpg" type="image" onClose={() => setshowModal4(false)}/>
+        
+        
+            <div className="list">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        
+        
+        
         </>
     )
 }

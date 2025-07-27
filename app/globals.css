@@ -45,6 +45,10 @@ a {
   }
 }
 
+h1{
+  @apply text-3xl mb-3;
+}
+
 .carousel{
   @apply overflow-hidden relative;
   .scroll-bar{
@@ -59,4 +63,25 @@ a {
       }
     }
   }
+}
+
+.modalBox{
+  @apply p-10 text-center;
+  button{
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium p-2 rounded mr-5;
+  }
+}
+
+.backdrop{
+  @apply fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms];
+  .infoArea{
+    @apply flex flex-col transition-transform duration-[500ms] transform;
+    .close{
+      @apply text-white text-xl place-self-end;
+    }
+    .information{
+      @apply bg-white rounded p-4;
+    }
+  }
+  
 }

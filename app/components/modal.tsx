@@ -10,15 +10,15 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
 
     return (
         <div
-            className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms] ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            className={`backdrop ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
         >
             <div
-                className={`${type !== 'video' ? 'w-[600px]' : ''} flex flex-col transition-transform duration-[500ms] transform ${isVisible ? 'scale-100' : 'scale-95'
+                className={`infoArea ${type !== 'video' ? 'w-[600px]' : ''}  ${isVisible ? 'scale-100' : 'scale-95'
                     }`}
             >
-                <button className="text-white text-xl place-self-end" onClick={onClose}>X</button>
-                <div className="bg-white rounded p-4">
+                <button className="close" onClick={onClose}>X</button>
+                <div className="information">
                     {type === "video" ?
                         isVisible && (
                             <iframe
@@ -33,11 +33,11 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                             ></iframe>
                         ) : type === "image" ? (
                             isVisible && (
-                            <img
-                                src={content}
-                                alt={title || "Modal Image"}
-                                className="max-w-full max-h-[80vh] object-contain rounded"
-                            />) 
+                                <img
+                                    src={content}
+                                    alt={title || "Modal Image"}
+                                    className="max-w-full max-h-[80vh] object-contain rounded"
+                                />)
                         )
                             : isVisible && (<>
                                 <h1 className="font-bold mb-2 pb-3 text-xl text-blue-700">{title}</h1>
