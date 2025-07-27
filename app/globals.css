@@ -73,7 +73,7 @@ h1{
 }
 
 .backdrop{
-  @apply fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms];
+  @apply fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms] z-[999];
   .infoArea{
     @apply flex flex-col transition-transform duration-[500ms] transform;
     .close{
@@ -83,5 +83,14 @@ h1{
       @apply bg-white rounded p-4;
     }
   }
-  
+}
+
+.photogallery{
+  @apply flex float-start gap-5 p-5;
+  div{
+    @apply rounded-3xl overflow-hidden drop-shadow-md shadow-inner;
+    img{
+      @apply cursor-pointer;
+    }
+  }
 }
