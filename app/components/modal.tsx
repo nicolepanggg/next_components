@@ -19,12 +19,7 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
             >
                 <button className="text-white text-xl place-self-end" onClick={onClose}>X</button>
                 <div className="bg-white rounded p-4">
-                    {type != "video" ? <>
-                        <h1 className="font-bold mb-2 pb-3 text-xl text-blue-700">{title}</h1>
-                        <div>
-                            {content || children}
-                        </div>
-                    </> :
+                    {type === "video" ?
                         isVisible && (
                             <iframe
                                 width="560"
@@ -36,7 +31,20 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                                 referrerPolicy="strict-origin-when-cross-origin"
                                 allowFullScreen
                             ></iframe>
+                        ) : type === "image" ? (
+                            isVisible && (
+                            <img
+                                src={content}
+                                alt={title || "Modal Image"}
+                                className="max-w-full max-h-[80vh] object-contain rounded"
+                            />) 
                         )
+                            : isVisible && (<>
+                                <h1 className="font-bold mb-2 pb-3 text-xl text-blue-700">{title}</h1>
+                                <div>
+                                    {content || children}
+                                </div>
+                            </>)
                     }
                 </div>
             </div>
