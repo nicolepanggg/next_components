@@ -10,14 +10,12 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
 
     return (
         <div
-            className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms] ${
-        isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-    }`}
+            className={`fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms] ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
         >
             <div
-                className={`${type !== 'video' ? 'w-[600px]' : ''} flex flex-col transition-transform duration-[500ms] transform ${
-                    isVisible ? 'scale-100' : 'scale-95'
-                }`}
+                className={`${type !== 'video' ? 'w-[600px]' : ''} flex flex-col transition-transform duration-[500ms] transform ${isVisible ? 'scale-100' : 'scale-95'
+                    }`}
             >
                 <button className="text-white text-xl place-self-end" onClick={onClose}>X</button>
                 <div className="bg-white rounded p-4">
@@ -26,21 +24,22 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                         <div>
                             {content || children}
                         </div>
-                    </> : <>
-                        <iframe
-                            width="560"
-                            height="315"
-                            src={`https://www.youtube-nocookie.com/embed/${content}`}
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                        ></iframe>
-                    </>}
+                    </> :
+                        isVisible && (
+                            <iframe
+                                width="560"
+                                height="315"
+                                src={`https://www.youtube-nocookie.com/embed/${content}`}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                            ></iframe>
+                        )
+                    }
                 </div>
             </div>
-
         </div>
 
     )
