@@ -14,8 +14,7 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                 }`}
         >
             <div
-                className={`infoArea ${type !== 'video' ? 'w-[600px]' : ''}  ${isVisible ? 'scale-100' : 'scale-95'
-                    }`}
+                className={`infoArea ${type !== 'video' ? 'w-[600px]' : ''} ease-in-out ${isVisible ? 'scale-100' : 'scale-95'}`}
             >
                 <button className="close" onClick={onClose}>X</button>
                 <div className="information">
@@ -32,19 +31,17 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                                 allowFullScreen
                             ></iframe>
                         ) : type === "image" ? (
-                            isVisible && (
-                                <img
-                                    src={content}
-                                    alt={title || "Modal Image"}
-                                    className="max-w-full max-h-[80vh] object-contain rounded"
-                                />)
+                            <img
+                                src={content}
+                                alt={title || "Modal Image"}
+                                className={`${isVisible ? 'scale-100' : 'scale-95'}`} />
                         )
-                            : isVisible && (<>
-                                <h1 className="font-bold mb-2 pb-3 text-xl text-blue-700">{title}</h1>
+                            : <div className={`dialog ${isVisible ? 'scale-100' : 'scale-95'}`}>
+                                <h1>{title}</h1>
                                 <div>
                                     {content || children}
                                 </div>
-                            </>)
+                            </div>
                     }
                 </div>
             </div>

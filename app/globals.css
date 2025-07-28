@@ -49,6 +49,14 @@ h1{
   @apply text-3xl mb-3;
 }
 
+.home{
+  @apply container m-auto p-5;
+  a{
+    color: blue;
+    text-decoration: underline;
+  }
+}
+
 .carousel{
   @apply overflow-hidden relative;
   .scroll-bar{
@@ -81,6 +89,15 @@ h1{
     }
     .information{
       @apply bg-white rounded p-4;
+      img{
+        @apply max-w-full max-h-[80vh] object-contain rounded transform  ease-in-out;
+      }
+      .dialog{
+        @apply transform ease-in-out;
+        h1{
+          @apply font-bold mb-2 pb-3 text-xl text-blue-700;
+        }
+      }
     }
   }
 }
@@ -93,4 +110,8 @@ h1{
       @apply cursor-pointer;
     }
   }
+}
+
+.react-tabs__tab{
+  @apply cursor-pointer;
 }
