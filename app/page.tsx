@@ -8,6 +8,7 @@ export default function Home() {
       <p><a href="/carousel" className="underline-offset-1">Carousel</a></p>
       <p><a href="/modal">Modal</a></p>
       <p><a href="/reactTabs">ReactTabs</a></p>
+      <p><a href="/masonary">Masonary</a></p>
     </div>
   );
 }
