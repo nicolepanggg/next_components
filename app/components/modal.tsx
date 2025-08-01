@@ -12,7 +12,7 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
         <div
             className={`backdrop ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
-        >
+        > 
             <div
                 className={`infoArea ${type !== 'video' ? 'w-[600px]' : ''} ease-in-out ${isVisible ? 'scale-100' : 'scale-95'}`}
             >
@@ -34,9 +34,9 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                             <img
                                 src={content}
                                 alt={title || "Modal Image"}
-                                className={`${isVisible ? 'scale-100' : 'scale-95'}`} />
+                                className={`${isVisible ? 'opacity-100' : 'opacity-80'}`} />
                         )
-                            : <div className={`dialog ${isVisible ? 'scale-100' : 'scale-95'}`}>
+                            : <div className={`dialog ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
                                 <h1>{title}</h1>
                                 <div>
                                     {content || children}

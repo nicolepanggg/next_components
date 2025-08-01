@@ -45,56 +45,68 @@ a {
   }
 }
 
-h1{
+h1 {
   @apply text-3xl mb-3;
 }
 
-.home{
+.home {
   @apply container m-auto p-5;
-  a{
+
+  a {
     color: blue;
     text-decoration: underline;
   }
 }
 
-.carousel{
+.carousel {
   @apply overflow-hidden relative;
-  .scroll-bar{
+
+  .scroll-bar {
     @apply flex transition-transform ease-out duration-500;
   }
-  .arrow{
+
+  .arrow {
     @apply absolute inset-0 flex items-center justify-between p-4;
-    button{
+
+    button {
       @apply p-2 rounded-full shadow bg-slate-50 hover:bg-gray-400;
-      img{
+
+      img {
         @apply h-[30px] px-2;
       }
     }
   }
 }
 
-.modalBox{
+.modalBox {
   @apply p-10 text-center;
-  button{
+
+  button {
     @apply text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium p-2 rounded mr-5;
   }
 }
 
-.backdrop{
-  @apply fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-screen absolute top-0 transition-opacity duration-[500ms] z-[999];
-  .infoArea{
-    @apply flex flex-col transition-transform duration-[500ms] transform;
-    .close{
+.backdrop {
+  @apply fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full top-0 transition-opacity duration-[500ms] z-[999];
+
+  .infoArea {
+    @apply flex flex-col transition-transform duration-[500ms] transform px-3 lg:px-0;
+
+    .close {
       @apply text-white text-xl place-self-end;
     }
-    .information{
-      @apply bg-white rounded p-4;
-      img{
-        @apply max-w-full max-h-[80vh] object-contain rounded transform  ease-in-out;
+
+    .information {
+      @apply bg-white rounded p-1;
+
+      img {
+        @apply max-w-full max-h-[100vh] object-contain rounded transform ease-in-out;
       }
-      .dialog{
+
+      .dialog {
         @apply transform ease-in-out;
-        h1{
+
+        h1 {
           @apply font-bold mb-2 pb-3 text-xl text-blue-700;
         }
       }
@@ -102,79 +114,56 @@ h1{
   }
 }
 
-.photogallery{
+.photogallery {
   @apply flex float-start gap-5 p-5;
-  div{
+
+  div {
     @apply rounded-3xl overflow-hidden drop-shadow-md shadow-inner;
-    img{
+
+    img {
       @apply cursor-pointer;
     }
   }
 }
 
-.react-tabs__tab{
+.react-tabs__tab {
   @apply cursor-pointer;
 }
 
-
-
 .masonary-layout {
-  column-gap: 1em;
+  column-gap: 0.5em;
   column-count: 1;
-
-  .masonary-item{
-    width: 100%;
+  padding: 0 1rem;
+ 
+  .masonary-item {
     break-inside: avoid;
-    page-break-inside: avoid;
-    margin-bottom: 1em;
-    background-color: lightgray;
-    border: 1px solid lightblue;
-    border-radius: 20px;
-    padding: 15px;
-    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      transition: transform 0.3s ease-in-out;
+      will-change: transform;
+      &:hover, &:focus{
+        transform: scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: 1px solid #ededed;
+        z-index: 1;
+        position: relative;
+        outline: none;
+      }
+    }
   }
-
-@media (min-width:576px) {
-  .masonary-layout{
+  @media (min-width: 768px) {
     column-count: 2;
   }
-}
-
-@media (min-width:768px) {
-  .masonary-layout{
+  @media (min-width: 1024px) {
+    column-count: 3;
+  }
+  @media (min-width: 1440px) {
     column-count: 4;
   }
 }
-
-@media (min-width:992px) {
-  .masonary-layout{
-    column-count: 6;
-  }
-}
-
-@media (min-width:1200px) {
- .masonary-layout{
-    column-count: 8;
-  }
-}
-
-
-  
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
-  padding: 10px; */
-}
-
-.masonary img {
-  /* width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.2s; */
-}
-.masonary img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
