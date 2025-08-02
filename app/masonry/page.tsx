@@ -1,5 +1,5 @@
 import React from 'react'
-import MasonaryLayout from '../components/masonary';
+import MasonayLayout from '../components/masonry';
 
 const mockItems = [
     { "title": "item 1", "src": "/thumbnails/img-1.jpg", "url": "/img-1.jpg" },
@@ -21,12 +21,12 @@ const mockItems = [
 ];
 
 
-const masonary = () => {
+const masonry = () => {
     return (
         <>
-            <MasonaryLayout items={mockItems} />
+            <MasonayLayout items={mockItems} />
         </>
     );
 }
 
-export default masonary;
+export default masonry;

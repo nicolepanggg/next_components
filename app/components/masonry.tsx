@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
-import Modal from '../components/modal';
+import Modal from './modal';
 
 interface Item {
     title: string;
