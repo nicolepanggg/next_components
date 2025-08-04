@@ -130,12 +130,12 @@ h1 {
   @apply cursor-pointer;
 }
 
-.masonary-layout {
+.masonry-layout {
   column-gap: 0.5em;
   column-count: 1;
   padding: 0 1rem;
  
-  .masonary-item {
+  .masonry-item {
     break-inside: avoid;
     width: 100%;
     margin-bottom: 0.5rem;
@@ -164,6 +164,6 @@ h1 {
     column-count: 3;
   }
   @media (min-width: 1440px) {
-    column-count: 4;
+    column-count: 5;
   }
 }

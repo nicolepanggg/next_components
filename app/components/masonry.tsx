@@ -3,38 +3,50 @@ import { useEffect, useState } from 'react';
 import Modal from './modal';
 
 interface Item {
-    title: string;
-    src: string;
-    url: string;
+    title?: string;
+    imageSrc: string;
+    imageUrl: string;
 }
 
-interface MasonaryProps {
+interface MasonryProps {
     items: Item[];
 }
 
-export default function Masonary({ items }: MasonaryProps) {
+export default function Masonry({ items }: MasonryProps) {
     const [showImageModal, setShowImageModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     //Handle Photo Gallery
-    const handlePhotoClick = (url: string) => {
-        setSelectedImage(url);
+    const handlePhotoClick = (imageUrl: string) => {
+        setSelectedImage(imageUrl);
         setShowImageModal(true);
     };
 
+    useEffect(() => {
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowImageModal(false);
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
+
     return (
         <>
-            <div className="masonary-layout">
+            <div className="masonry-layout"> 
                 {items.map((item, index) => (
-                    <div key={index} className="masonary-item">
-                        <a href={item.url} onClick={(e) => {
+                    item.imageSrc !== "" ?
+                    <div key={index} className="masonry-item">
+                        <a href={item.imageUrl} onClick={(e) => {
                             e.preventDefault();
-                            handlePhotoClick?.(item.url);
+                            handlePhotoClick?.(item.imageUrl);
                         }
                         }>
-                            <img src={item.src} alt={item.title} loading="lazy" />
+                            <img src={item.imageSrc} alt={item.title} loading="lazy" />
                         </a>
-                    </div>
+                    </div>:null
                 ))}
             </div>
             <Modal

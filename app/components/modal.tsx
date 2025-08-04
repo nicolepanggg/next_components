@@ -9,6 +9,7 @@ interface ModalProps {
 export default function Modal({ isVisible, title, content, onClose, children, type }: ModalProps) {
 
     return (
+        content !== "" ?
         <div
             className={`backdrop ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                 }`}
@@ -46,6 +47,6 @@ export default function Modal({ isVisible, title, content, onClose, children, ty
                 </div>
             </div>
         </div>
-
+        :null
     )
 }
